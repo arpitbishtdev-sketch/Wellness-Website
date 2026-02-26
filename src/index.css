@@ -16,8 +16,8 @@ html,
 body {
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto; /* ⭐ IMPORTANT: allow scrolling */
+  overflow-x: hidden; /* keep this */
+  overflow-y: auto;
 }
 
 /* CRITICAL: use min-height NOT height */

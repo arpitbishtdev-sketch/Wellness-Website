@@ -67,10 +67,12 @@ const FoundersSection = () => {
         {
           opacity: 0,
           y: 40,
+          xPercent: isMobile ? 0 : 20, // ✅ SAFE
         },
         {
           opacity: 1,
           y: 0,
+          xPercent: 0,
           stagger: 0.2,
           duration: 1,
           ease: "power3.out",
