@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/Footer.css";
-
+import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -17,6 +17,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Footer = () => {
   const footerRef = useRef();
 
+  const location = useLocation();
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".footer-animate", {
@@ -27,15 +29,16 @@ const Footer = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: footerRef.current,
-          start: "top 85%",
+          start: "top 95%", // safer value
+          toggleActions: "play none none reverse",
         },
       });
-    });
+    }, footerRef);
 
     ScrollTrigger.refresh();
 
     return () => ctx.revert();
-  }, []);
+  }, [location]); // ⭐ THIS IS THE FIX
 
   return (
     <footer className="premium-footer" ref={footerRef}>

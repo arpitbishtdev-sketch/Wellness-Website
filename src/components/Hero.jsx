@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "../styles/Hero.css";
 
 import Mission from "./Mission";
@@ -46,7 +47,7 @@ const slides = [
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -107,9 +108,19 @@ const Hero = () => {
               <p className="hero-desc">{slides[index].desc}</p>
 
               <div className="hero-buttons">
-                <button className="btn-primary">Book Consultation →</button>
+                <button
+                  className="btn-primary"
+                  onClick={() => navigate("/appointment")}
+                >
+                  Book Consultation →
+                </button>
 
-                <button className="btn-secondary">Explore Treatments</button>
+                <button
+                  className="btn-secondary"
+                  onClick={() => navigate("/services")}
+                >
+                  Explore Treatments
+                </button>
               </div>
             </motion.div>
           </AnimatePresence>

@@ -1,25 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600&display=swap");
 
+/* =========================
+   BASE NAVBAR
+========================= */
 .nav-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 2500; /* Ensure this is above everything */
+  margin-top: -10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 80px; /* More breathing room at edges */
+  padding: 32px 60px;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
 
+/* =========================
+   LOGO
+========================= */
 .nav-logo {
   font-family: "Playfair Display", serif;
   font-size: 32px;
   font-weight: 600;
-  color: white;
-  letter-spacing: -0.5px;
   background: linear-gradient(
     135deg,
     #5b6cff 0%,
@@ -27,13 +32,11 @@
     #ec4899 80%,
     #5b6cff 100%
   );
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-
   cursor: pointer;
   text-decoration: none;
+  z-index: 2600;
 }
 
 .logo-dot {
@@ -42,9 +45,11 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Pill - Match reference image aesthetic */
+/* =========================
+   NAV PILL
+========================= */
 .nav-pill {
-  background: rgba(255, 255, 255, 0.98); /* Brighter, more solid white */
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   border-radius: 100px;
   display: flex;
@@ -58,24 +63,22 @@
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 15px;
+  gap: 30px;
   padding: 0 10px;
   margin: 0;
   align-items: center;
 }
 
 .nav-link {
-  padding: 12px 28px;
-  font-size: 17px; /* BIGGER TEXT as requested */
+  padding: 10px 22px;
+  font-size: 16px;
   font-weight: 400;
   color: #666;
   border-radius: 50px;
   cursor: pointer;
-  transition: color 0.3s ease;
-  white-space: nowrap;
+  transition: all 0.25s ease;
 }
 
-/* Active State - Matches the gradient bubble in your image */
 .nav-link.active {
   background: linear-gradient(105deg, #c7d9f5 0%, #9cbdf0 100%);
   color: #1e40af;
@@ -86,15 +89,19 @@
   color: #000;
 }
 
-/* Dropdown Arrow Symbol */
-.dropdown-arrow::after {
-  content: "⌄";
-  margin-left: 8px;
-  font-size: 14px;
-  vertical-align: middle;
+.nav-link-text {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Hamburger - Sophisticated white circle */
+/* =========================
+   PREMIUM HAMBURGER
+========================= */
+.nav-ham {
+  z-index: 3000; /* Highest z-index to stay above overlay */
+  cursor: pointer;
+}
+
 .ham-pill {
   width: 58px;
   height: 58px;
@@ -105,30 +112,91 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .ham-pill:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .line {
-  width: 22px;
+  width: 24px;
   height: 2px;
   background: #111;
-  border-radius: 2px;
+  border-radius: 10px;
+  transform-origin: center;
 }
 
-.line.half {
-  width: 14px;
-  align-self: flex-start;
-  margin-left: 18px;
+/* Small detail: make middle line slightly shorter for "pill" look */
+.line-mid {
+  width: 18px;
 }
 
-.nav-link-text {
+/* =========================
+   OVERLAY MENU
+========================= */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(30px);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.05);
+  transform: translateX(100%);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  padding-left: 60px;
+}
+
+.menu-link {
+  font-size: 32px;
+  font-weight: 500;
+  color: #111;
   text-decoration: none;
-  color: inherit;
-  display: inline-block;
+  transition: 0.3s;
+  display: block;
+}
+
+.menu-link:hover {
+  color: #5b6cff;
+  transform: translateX(10px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 24px 30px;
+  }
+  .nav-pill {
+    display: none;
+  } /* Hide pill on tablet if needed */
+  .menu-overlay {
+    width: 100%;
+  } /* Full screen menu on mobile */
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 18px 20px;
+  }
+  .nav-logo {
+    font-size: 24px;
+  }
+  .nav-pill {
+    display: none;
+  }
 }
