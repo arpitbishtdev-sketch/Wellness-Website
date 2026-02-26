@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600&display=swap");
+
+.nav-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px; /* More breathing room at edges */
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.nav-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.5px;
+  background: linear-gradient(
+    135deg,
+    #5b6cff 0%,
+    #7c3aed 40%,
+    #ec4899 80%,
+    #5b6cff 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-dot {
+  background: linear-gradient(135deg, #5b6cff, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pill - Match reference image aesthetic */
+.nav-pill {
+  background: rgba(255, 255, 255, 0.98); /* Brighter, more solid white */
+  backdrop-filter: blur(20px);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding: 0 10px;
+  margin: 0;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 12px 28px;
+  font-size: 17px; /* BIGGER TEXT as requested */
+  font-weight: 400;
+  color: #666;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Active State - Matches the gradient bubble in your image */
+.nav-link.active {
+  background: linear-gradient(105deg, #c7d9f5 0%, #9cbdf0 100%);
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.nav-link:hover:not(.active) {
+  color: #000;
+}
+
+/* Dropdown Arrow Symbol */
+.dropdown-arrow::after {
+  content: "⌄";
+  margin-left: 8px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* Hamburger - Sophisticated white circle */
+.ham-pill {
+  width: 58px;
+  height: 58px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.ham-pill:hover {
+  transform: scale(1.05);
+}
+
+.line {
+  width: 22px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+}
+
+.line.half {
+  width: 14px;
+  align-self: flex-start;
+  margin-left: 18px;
+}
+
+.nav-link-text {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}

@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap");
+
+.ps-wrapper {
+  background-color: #080808;
+  color: #ffffff;
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+.ps-section {
+  padding: 120px 5% 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ps-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.ps-badge {
+  color: #c5a059;
+  letter-spacing: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.ps-title-reveal {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(40px, 7vw, 90px);
+  line-height: 1;
+  margin: 0;
+}
+
+.ps-accent-text {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(197, 160, 89, 0.5);
+}
+
+.ps-description {
+  font-family: "Inter", sans-serif;
+  max-width: 500px;
+  margin: 30px auto 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+/* Grid & Cards */
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.ps-card {
+  position: relative;
+  background: #111;
+  overflow: hidden;
+}
+
+.ps-img-container {
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ps-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ps-card:hover .ps-card-img {
+  transform: scale(1.08);
+}
+
+.ps-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.9));
+}
+
+.ps-card-content {
+  position: absolute;
+  bottom: 0;
+  padding: 40px;
+  width: 100%;
+}
+
+.ps-card-tag {
+  color: #c5a059;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.ps-card-content h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  margin: 10px 0 20px;
+}
+
+.ps-card-link {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #c5a059;
+  padding-bottom: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* LIGHT PREMIUM MODAL - Champagne Aesthetic */
+.ps-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ps-modal-content {
+  background: #fdfcf9; /* Champagne White */
+  color: #1a1a1a;
+  width: 100%;
+  max-width: 700px;
+  padding: 60px;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.ps-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ps-close-btn::before,
+.ps-close-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #1a1a1a;
+  top: 50%;
+  left: 0;
+}
+.ps-close-btn::before {
+  transform: rotate(45deg);
+}
+.ps-close-btn::after {
+  transform: rotate(-45deg);
+}
+
+.ps-modal-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ps-modal-title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.ps-modal-divider {
+  width: 40px;
+  height: 2px;
+  background: #c5a059;
+  margin: 15px auto;
+}
+
+.ps-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.ps-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ps-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ps-input-field label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #888;
+}
+
+.ps-input-field input,
+.ps-input-field select,
+.ps-input-field textarea {
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  padding: 12px 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.ps-input-field input:focus {
+  border-color: #c5a059;
+}
+
+.ps-submit-lux {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.ps-submit-lux:hover {
+  background: #c5a059;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+  .ps-form-row {
+    grid-template-columns: 1fr;
+  }
+  .ps-modal-content {
+    padding: 40px 20px;
+  }
+}

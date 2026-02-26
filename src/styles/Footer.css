@@ -1,0 +1,231 @@
+/* =========================
+   FOOTER MAIN
+========================= */
+
+.premium-footer {
+  background: #0b0c0f;
+  color: #ffffff;
+  padding: 90px 10% 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================
+   FOOTER GRID LAYOUT
+========================= */
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 60px;
+}
+
+/* =========================
+   LEFT SECTION
+========================= */
+
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.footer-speciality {
+  color: #10b981;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.footer-description {
+  color: #9ca3af;
+  line-height: 1.7;
+  font-size: 15px;
+  max-width: 420px;
+}
+
+.highlight {
+  color: white;
+  font-weight: 500;
+}
+
+/* =========================
+   SOCIAL SECTION
+========================= */
+
+.footer-social-section {
+  margin-top: 30px;
+}
+
+.footer-follow-label {
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+/* BUTTON STYLE */
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  font-size: 15px;
+
+  color: #9ca3af;
+
+  text-decoration: none;
+
+  transition: all 0.35s ease;
+
+  cursor: pointer;
+}
+
+.social-icon svg {
+  font-size: 18px;
+}
+
+.social-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* INSTAGRAM HOVER */
+
+.social-icon.instagram:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+
+  color: white;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 25px rgba(214, 36, 159, 0.35);
+}
+
+/* FACEBOOK HOVER */
+
+.social-icon.facebook:hover {
+  background: #1877f2;
+
+  color: white;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.35);
+}
+
+/* =========================
+   CENTER LINKS
+========================= */
+
+.footer-heading {
+  margin-bottom: 20px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.footer-links li:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+/* =========================
+   RIGHT INFO SECTION
+========================= */
+
+.footer-info {
+  margin-top: 10px;
+}
+
+.footer-info-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #9ca3af;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.footer-icon {
+  color: #10b981;
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+/* =========================
+   BOTTOM SECTION
+========================= */
+
+.footer-bottom {
+  margin-top: 60px;
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.footer-bottom-links span {
+  margin-left: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-bottom-links span:hover {
+  color: white;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,288 @@
+/* ============================= */
+/* PREMIUM FOUNDERS SECTION */
+/* ============================= */
+
+.premium-founders-section {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 6%;
+  background: linear-gradient(to bottom, #ffffff, #f8faff);
+}
+
+/* ============================= */
+/* CONTAINER */
+/* ============================= */
+
+.founders-container {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 80px;
+  max-width: 1350px;
+  width: 100%;
+}
+
+/* ============================= */
+/* TEXT SIDE */
+/* ============================= */
+
+.text-content-side {
+  text-align: left;
+}
+
+.overline {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: #5b7fff;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: block;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.section-title {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  color: #0a1128;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
+
+.section-title span {
+  font-weight: 300;
+  font-style: italic;
+  color: #5b7fff;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #5f6b85;
+  max-width: 420px;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* PREMIUM BUTTON */
+/* ============================= */
+
+.premium-btn {
+  background: linear-gradient(135deg, #0a1128, #1c2a5a);
+  color: white;
+  border: none;
+  padding: 16px 34px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(10, 17, 40, 0.15);
+}
+
+.premium-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(91, 127, 255, 0.25);
+  background: linear-gradient(135deg, #5b7fff, #7f9bff);
+}
+
+/* ============================= */
+/* CARDS WRAPPER */
+/* ============================= */
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+/* ============================= */
+/* FOUNDER CARD */
+/* ============================= */
+
+.founder-minimal-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 26px;
+  padding: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 rgba(255, 255, 255, 0);
+
+  transition: all 0.4s ease;
+}
+
+.founder-minimal-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(91, 127, 255, 0.15);
+}
+
+/* ============================= */
+/* IMAGE BOX */
+/* ============================= */
+
+.img-box {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.1;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.founder-minimal-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ============================= */
+/* BIO SLIDE */
+/* ============================= */
+
+.bio-slide {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 17, 40, 0.98),
+    rgba(10, 17, 40, 0.92)
+  );
+
+  padding: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.bio-slide.show {
+  transform: translateY(0);
+}
+
+.bio-slide p {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* ============================= */
+/* CARD DETAILS */
+/* ============================= */
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 6px 6px;
+}
+
+/* ============================= */
+/* TEXT INFO */
+/* ============================= */
+
+.info h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #0a1128;
+  font-weight: 700;
+}
+
+.info p {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  color: #7a859d;
+  letter-spacing: 0.5px;
+}
+
+/* ============================= */
+/* TOGGLE BUTTON */
+/* ============================= */
+
+.toggle-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  background: white;
+  cursor: pointer;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.toggle-icon:hover {
+  background: #5b7fff;
+  color: white;
+  border-color: #5b7fff;
+  transform: rotate(90deg);
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .premium-founders-section {
+    padding: 80px 6%;
+  }
+
+  .founders-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .text-content-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-description {
+    max-width: 100%;
+  }
+
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ============================= */
+/* SMALL MOBILE */
+/* ============================= */
+
+@media (max-width: 500px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .premium-btn {
+    width: 100%;
+  }
+}
