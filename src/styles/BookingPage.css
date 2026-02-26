@@ -18,6 +18,7 @@
   align-items: center;
   justify-content: center;
   padding: 40px 6%;
+  padding-top: 130px !important;
   position: relative;
   overflow: hidden; /* Keeps blobs inside */
   background-color: #f8fafc; /* Base color */
