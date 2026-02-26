@@ -21,6 +21,7 @@
   position: relative;
   overflow: hidden; /* Keeps blobs inside */
   background-color: #f8fafc; /* Base color */
+  margin-top: 50px;
 }
 
 /* Floating Glass Orbs for Depth */
