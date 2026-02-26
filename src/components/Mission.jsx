@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/Mission.css";
 
+import { isMobileOrLowEnd } from "../utils/isMobile";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Mission = () => {
@@ -15,24 +17,27 @@ const Mission = () => {
     // Split text into words for premium reveal
     const words = el.querySelectorAll(".mission-word");
 
+    const isMobile = isMobileOrLowEnd();
+
     gsap.fromTo(
       words,
       {
-        opacity: 0.15,
+        opacity: 0,
         y: 40,
-        filter: "blur(6px)",
+        filter: isMobile ? "none" : "blur(6px)",
       },
       {
         opacity: 1,
         y: 0,
         filter: "blur(0px)",
-        stagger: 0.08,
+        stagger: isMobile ? 0.05 : 0.08,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 80%",
           end: "top 20%",
-          scrub: 1,
+          scrub: isMobile ? false : 1,
+          toggleActions: isMobile ? "play none none reverse" : undefined,
         },
       },
     );

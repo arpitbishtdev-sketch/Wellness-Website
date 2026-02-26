@@ -3,6 +3,7 @@ import "../styles/Footer.css";
 import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { isMobileOrLowEnd } from "../utils/isMobile";
 
 import {
   FaInstagram,
@@ -19,18 +20,19 @@ const Footer = () => {
 
   const location = useLocation();
 
+  const isMobile = isMobileOrLowEnd();
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".footer-animate", {
-        y: 60,
+        y: isMobile ? 30 : 60,
         opacity: 0,
-        duration: 1,
-        stagger: 0.15,
+        duration: isMobile ? 0.8 : 1,
+        stagger: 0.12,
         ease: "power3.out",
         scrollTrigger: {
           trigger: footerRef.current,
-          start: "top 95%", // safer value
-          toggleActions: "play none none reverse",
+          start: "top 95%",
         },
       });
     }, footerRef);

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/Doctors.css";
+import { isMobileOrLowEnd } from "../utils/isMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,36 +30,59 @@ const FoundersSection = () => {
   const cardsRef = useRef([]);
   const textRef = useRef(null);
   const [expandedId, setExpandedId] = useState(null);
+  const isMobile = isMobileOrLowEnd();
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Text Reveal
-      gsap.from(".reveal-item", {
-        x: -50,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 1,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-      });
+    const isMobile = isMobileOrLowEnd();
 
-      // Cards Entrance
-      cardsRef.current.forEach((card, i) => {
-        gsap.from(card, {
-          x: 50,
+    let ctx = gsap.context(() => {
+      // TEXT
+      gsap.fromTo(
+        ".reveal-item",
+        {
           opacity: 0,
-          duration: 1.2,
-          delay: i * 0.2,
-          ease: "expo.out",
+          y: isMobile ? 30 : 0,
+          x: isMobile ? 0 : -50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          x: 0,
+          stagger: 0.1,
+          duration: isMobile ? 0.8 : 1,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
+            start: "top 85%",
+            once: true,
           },
-        });
-      });
+        },
+      );
+
+      // CARDS
+      const cards = gsap.utils.toArray(".founder-minimal-card");
+
+      gsap.fromTo(
+        cards,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
+
+      ScrollTrigger.refresh();
     }, sectionRef);
 
     return () => ctx.revert();
@@ -85,7 +109,11 @@ const FoundersSection = () => {
           {founders.map((founder, index) => (
             <div
               key={founder.id}
-              ref={(el) => (cardsRef.current[index] = el)}
+              ref={(el) => {
+                if (el && !cardsRef.current.includes(el)) {
+                  cardsRef.current.push(el);
+                }
+              }}
               className="founder-minimal-card"
             >
               <div className="img-box">

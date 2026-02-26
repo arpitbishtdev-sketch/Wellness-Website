@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -22,6 +23,7 @@ export default function App() {
 
       {!isLoading && (
         <>
+          <ScrollToTop />
           <Navbar />
 
           <Routes>

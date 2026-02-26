@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "../styles/ServiceSection.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { isMobileOrLowEnd } from "../utils/isMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,19 +59,20 @@ export default function ServiceSection() {
   const sliderRef = useRef();
   const beforeImgRef = useRef();
   const isDragging = useRef(false);
+  const isMobile = isMobileOrLowEnd();
 
   // Entrance Animations
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".reveal-text", {
-        y: 40,
+        y: isMobile ? 30 : 40,
         opacity: 0,
         stagger: 0.1,
-        duration: 1.2,
-        ease: "expo.out",
+        duration: isMobile ? 0.8 : 1.2,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 85%",
         },
       });
 

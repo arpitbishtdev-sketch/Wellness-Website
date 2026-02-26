@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
 
+/* =========================
+   HERO CONTAINER
+========================= */
+
 .hero-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -10,7 +14,10 @@
   padding-top: 100px;
 }
 
-/* STACK BACKGROUND */
+/* =========================
+   BACKGROUND STACK
+========================= */
+
 .hero-bg-stack {
   position: absolute;
   inset: 0;
@@ -23,9 +30,13 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.75) contrast(1.1);
+  transform: translateZ(0);
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY
+========================= */
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -33,38 +44,48 @@
     90deg,
     rgba(0, 0, 0, 0.75) 0%,
     rgba(0, 0, 0, 0.45) 35%,
-    rgba(0, 0, 0, 0.1) 60%,
-    transparent 80%
+    rgba(0, 0, 0, 0.15) 60%,
+    transparent 85%
   );
 }
 
-/* CONTENT */
+/* =========================
+   CONTENT
+========================= */
+
 .hero-content {
   position: relative;
   z-index: 5;
   padding-left: 8%;
+  padding-right: 5%;
   max-width: 800px;
 }
 
-/* TAG */
+/* =========================
+   TAG
+========================= */
+
 .hero-tag {
   font-family: Inter;
-  font-size: 12px;
+  font-size: clamp(10px, 1vw, 13px);
   letter-spacing: 4px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
+
 .hero-title {
   font-family: "Playfair Display";
-  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-size: clamp(2.4rem, 5vw, 5.5rem);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.1;
   color: white;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .hero-title em {
@@ -73,31 +94,38 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* DESC */
+/* =========================
+   DESCRIPTION
+========================= */
+
 .hero-desc {
   font-family: Inter;
-  font-size: 17px;
+  font-size: clamp(14px, 1.2vw, 17px);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.75);
   max-width: 520px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
+
 .hero-buttons {
   display: flex;
   gap: 18px;
+  flex-wrap: wrap;
 }
 
 .btn-primary {
   background: white;
   color: black;
-  padding: 16px 32px;
+  padding: 15px 30px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   font-weight: 500;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -108,12 +136,20 @@
   background: transparent;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 16px 32px;
+  padding: 15px 30px;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* INDICATORS */
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   INDICATORS
+========================= */
+
 .hero-indicators {
   position: absolute;
   bottom: 50px;
@@ -132,4 +168,137 @@
 .indicator-dot.active {
   width: 65px;
   background: white;
+}
+
+/* =========================
+   SMALL LAPTOPS
+   (1366×768)
+========================= */
+
+@media (max-width: 1400px) {
+  .hero-content {
+    max-width: 650px;
+  }
+
+  .hero-indicators {
+    right: 50px;
+    bottom: 40px;
+  }
+}
+
+/* =========================
+   TABLET (iPad)
+========================= */
+
+@media (max-width: 1024px) {
+  .hero-container {
+    padding-top: 90px;
+  }
+
+  .hero-content {
+    padding-left: 6%;
+    max-width: 600px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+  }
+
+  .hero-indicators {
+    right: 40px;
+    bottom: 35px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding-top: 80px;
+    align-items: center;
+  }
+
+  .hero-content {
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-indicators {
+    left: 5%;
+    right: auto;
+    bottom: 25px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding-top: 70px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 13px;
+  }
+
+  .hero-tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .indicator-dot {
+    width: 25px;
+  }
+
+  .indicator-dot.active {
+    width: 40px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-desc {
+    font-size: 12px;
+  }
 }
